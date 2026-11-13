@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+<div id="introBubble"><span id="bubbleText"></span></div>
+
+<div id="langOverlay">
+  <button class="lang-btn" data-lang="en">English</button>
+  <button class="lang-btn" data-lang="es">Español</button>
+  <button class="lang-btn" data-lang="zh">中文</button>
+</div>
+
+<div id="settingsBtn">⚙</div>
+
+<div id="settingsPanel">
+  <div class="settings-header">
+    <h2 id="settingsTitle">设置</h2>
+    <button id="closeSettings">×</button>
+  </div>
+  <div class="settings-content">
+    <div class="setting-row" data-row="creator"><span id="labelCreator">创作者</span><span class="arrow">›</span></div>
+    <div class="setting-sub" id="subCreator"><div class="creator-name">GNFesungatito</div></div>
+    <div class="setting-row" data-row="lang"><span id="labelLang">语言</span><span class="arrow">›</span></div>
+    <div class="setting-sub" id="subLang">
+      <button class="lang-btn-sm" data-lang="en">English</button>
+      <button class="lang-btn-sm" data-lang="es">Español</button>
+      <button class="lang-btn-sm" data-lang="zh">中文</button>
+    </div>
+    <div class="setting-row" data-row="mode"><span id="labelMode">模式</span><span class="arrow">›</span></div>
+    <div class="setting-sub" id="subMode">
+      <button class="mode-btn active" data-mode="normal" id="modeNormal">普通</button>
+      <button class="mode-btn" data-mode="snow" id="modeSnow">绵绵冰</button>
+      <button class="mode-btn" data-mode="liquid" id="modeLiquid">液态</button>
+    </div>
+    <div class="setting-row" data-row="audio"><span id="labelAudio">音频</span><span class="arrow">›</span></div>
+    <div class="setting-sub" id="subAudio">
+      <div class="audio-slider-group">
+        <label class="slider-label"><span id="labelMaster">总音量</span><span class="slider-val" id="valMaster">100</span></label>
+        <input type="range" id="sliderMaster" min="0" max="100" value="100">
+      </div>
+      <div class="audio-slider-group">
+        <label class="slider-label"><span id="labelBgm">背景音乐</span><span class="slider-val" id="valBgm">100</span></label>
+        <input type="range" id="sliderBgm" min="0" max="100" value="100">
+      </div>
+      <div class="audio-slider-group">
+        <label class="slider-label"><span id="labelSfx">音效</span><span class="slider-val" id="valSfx">100</span></label>
+        <input type="range" id="sliderSfx" min="0" max="100" value="100">
+      </div>
+      <div class="audio-source-group">
+        <div class="audio-source-row"><input type="text" id="musicUrlInput" placeholder="音乐链接 (MP3)"></div>
+        <div class="audio-source-row">
+          <label class="file-upload-label" id="labelUpload">
+            <span id="uploadBtnText">上传视频/音频</span>
+            <input type="file" id="mediaFileInput" accept="audio/*,video/*" style="display:none;">
+          </label>
+        </div>
+        <button class="mode-btn" id="btnPlayMusic" style="margin-top:6px;">▶ 播放</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="stage">
+  <div id="pigWrapper" class="intro-start">
+    <canvas id="pigCanvas" width="64" height="64"></canvas>
+    <div id="equippedLayer"></div>
+  </div>
+  <div id="itemsLayer"></div>
+</div>
+
+<div id="drawToggleBtn"><div class="pixel-icon"></div><span id="drawBtnLabel">创意工坊</span></div>
+
+<div id="fullDrawScreen">
+  <div class="draw-header">
+    <input type="text" id="drawName" placeholder="名字..." maxlength="8">
+    <button id="btnExitDraw">完成</button>
+  </div>
+  <div class="page-indicator"><span id="pageTitle">装饰绘制</span></div>
+  <div class="horizontal-drag-container"><div class="fabric-handle" id="dragHandle"><div class="fabric-knob" id="dragKnob"></div></div></div>
+  <div class="draw-pages-wrapper" id="drawPagesWrapper">
+    <div class="draw-pages-container" id="drawPagesContainer">
+      <div class="draw-page" id="pageAccessory"><div class="canvas-container"><canvas id="gridCanvasAcc"></canvas></div></div>
+      <div class="draw-page" id="pageWeapon"><div class="canvas-container"><canvas id="gridCanvasWeap"></canvas></div></div>
+    </div>
+  </div>
+  <div class="side-controls-left">
+    <div class="ctrl-btn-diamond" id="btnZoomIn"><div class="diamond"></div></div>
+    <div class="ctrl-pair"><div class="ctrl-half" id="btnPanUp">↑</div><div class="ctrl-half" id="btnPanDown">↓</div></div>
+  </div>
+  <div class="side-controls-right">
+    <div class="ctrl-btn-diamond" id="btnZoomOut"><div class="diamond"></div></div>
+    <div class="ctrl-pair"><div class="ctrl-half" id="btnPanLeft">←</div><div class="ctrl-half" id="btnPanRight">→</div></div>
+  </div>
+  <div class="color-palette-container" id="paletteContainer">
+    <div class="eraser-popup" id="eraserPopup">
+      <span id="eraserLabel">橡皮</span>
+      <input type="range" id="eraserSizeRange" min="1" max="50" value="1">
+      <span id="eraserSizeVal">1</span>
+    </div>
+  </div>
+</div>
+
+<div id="wearOverlay">
+  <div class="wear-tips" id="wearTips">拖动物品进行编辑</div>
+  <button id="btnExitWear">保存并退出</button>
+</div>
+<div class="system-log" id="systemLog"></div>
